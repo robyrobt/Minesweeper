@@ -14,7 +14,7 @@
 
 <% board_game = JSON.parse(@board.board_game)%>
 
-<div class="text-center w-auto m-auto mt-3">
+<div class="text-center w-auto m-auto mt-3 container-fluid">
   <% 0.upto(@board.width - 1) do |i| %>
     <% 0.upto(@board.height - 1) do |j| %>
       <%= display_icon(board_game[i][j]) %>
