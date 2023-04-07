@@ -4,6 +4,11 @@
 
 <div class="container">
   <div class="row">
+    <div>
+      <div class="text-left btn-lg col">
+        <%= link_to "New Board", new_board_path, class: "btn btn-primary"%>
+      </div>
+    </div>
     <div class="card mt-2 w-75 m-auto col">
       <div class="card-body">
         <% @boards.each do |board| %>
@@ -18,13 +23,7 @@
             </div>
           </div>
         <% end %>
-        <div class="text-center">
-          <%= link_to "Show less", new_board_path, class: "btn btn-primaty"%>
-        </div>
       </div>
-    </div>
-    <div class="col">
-      <%= render partial: "form"%>
     </div>
   </div>
 </div>

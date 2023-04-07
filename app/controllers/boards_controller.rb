@@ -26,7 +26,7 @@ class BoardsController < ApplicationController
         format.html { redirect_to board_url(@board) }
         format.json { render :show, status: :created, location: @board}
       else
-        format.html { render :action => "new", status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @board.errors.full_messages, status: :unprocessable_entity }
       end
     end

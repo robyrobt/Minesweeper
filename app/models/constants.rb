@@ -19,7 +19,7 @@ module Constants
   HEIGHT_MUST_BE_GREATER_THAN_NUMBER = "Height must be greater than 0"
   MINES_MUST_BE_GREATER_THAN_NUMBER = "Mines must be greater than 0"
 
-  WIDTH_MUST_BE_LESS_THAN_NUMBER = "Width must be less than 100000"
-  HEIGHT_MUST_BE_LESS_THAN_NUMBER = "Height must be less than 100000"
+  WIDTH_MUST_BE_LESS_THAN_NUMBER = "Width must be less than 10000"
+  HEIGHT_MUST_BE_LESS_THAN_NUMBER = "Height must be less than 10000"
   MINES_MUST_BE_LESS_THAN_NUMBER = "Mines must be less than "
 end

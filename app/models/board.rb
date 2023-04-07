@@ -2,7 +2,7 @@ class Board < ApplicationRecord
   REGEX_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, :name, :width, :height, :mines, presence: :true
   validates_format_of :email, with: REGEX_EMAIL
-  validates :width, :height, :mines, numericality: {only_integer: true, greater_than: 0, less_than: 100000}
+  validates :width, :height, :mines, numericality: {only_integer: true, greater_than: 0, less_than: 10000}
   validate :validate_mines
 
   before_create :generate
@@ -11,7 +11,7 @@ class Board < ApplicationRecord
 
   def validate_mines
     return false if width.nil? || height.nil? || mines.nil?
-    errors.add :mines, " must be less than #{width * height}" if mines >= width * height
+    errors.add :mines, "must be less than #{width * height}" if mines >= width * height
     errors.add :mines, ": enter valid width or height" if width.zero? || height.zero? || mines.zero?
   end
 

@@ -165,7 +165,7 @@ RSpec.describe "Boards", type: :request do
       @ro_board["mines"] = 200000
       post '/boards.json', params: @ro_board, as: :json
       expect(response).to have_http_status(422)
-      expect(json).to include Constants::MINES_MUST_BE_LESS_THAN_NUMBER + "100000"
+      expect(json).to include Constants::MINES_MUST_BE_LESS_THAN_NUMBER + "10000"
 
       negative_height = [ -4, 0]
       negative_height.each do |neg_height|

@@ -6,6 +6,9 @@
     <p><b> Email: </b> <%= @board.email %> </p>
 
     <p><b>Created at: </b> <%= @board.created_at.to_formatted_s(:db) %> </p>
+
+    <%= link_to "Go to boards", new_board_path %>
+
   </div>
 </div>
 
