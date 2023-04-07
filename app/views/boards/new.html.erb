@@ -1,0 +1,28 @@
+<div class="h1 text-center mb-5"> New Minesweeper Board </div>
+
+<div class="container">
+  <div class="row">
+    <div class="card mt-2 w-75 m-auto col">
+      <div class="card-body">
+        <% @boards.each do |board| %>
+          <div class="container">
+            <div class="row">
+              <div class="h4 col">
+                <p class="small">Name: <%= link_to board.name, board_path(board) %></p>
+              </div>
+              <div class="col">
+                <%= board.created_at.to_formatted_s(:db)  %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="text-center">
+          <%= link_to "Show all", boards_path, class: "btn btn-primaty"%>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <%= render partial: "form"%>
+    </div>
+  </div>
+</div>

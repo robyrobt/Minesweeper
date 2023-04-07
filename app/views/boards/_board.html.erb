@@ -1,0 +1,21 @@
+
+<div class="card text-center w-25 m-auto mt-3">
+  <div class="card-body">
+    <p><b>Name: </b> <%= @board.name %> </p>
+
+    <p><b> Email: </b> <%= @board.email %> </p>
+
+    <p><b>Created at: </b> <%= @board.created_at.to_formatted_s(:db) %> </p>
+  </div>
+</div>
+
+<% board_game = JSON.parse(@board.board_game)%>
+
+<div class="text-center w-auto m-auto mt-3">
+  <% 0.upto(@board.width - 1) do |i| %>
+    <% 0.upto(@board.height - 1) do |j| %>
+      <%= display_icon(board_game[i][j]) %>
+    <% end %>
+    <br>
+  <% end %>
+</div>

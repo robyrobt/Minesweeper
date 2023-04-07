@@ -1,0 +1,71 @@
+
+
+<%= form_with model: @board, local: true do |form| %>
+  <div class="card w-75 center m-auto">
+    <div class="card-body">
+      <div class="mb-3">
+        <%= form.label :email, { class: "form-label" } %>
+        <%= form.email_field :email, { class: "form-control text-center", placeholder: "Email" } %>
+        <% if @board.errors.full_messages_for(:email).any? %>
+          <div class="text-danger text-sm">
+            <% @board.errors.full_messages_for(:email).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :name, { class: "form-label" } %>
+        <%= form.text_field :name, { class: "form-control text-center", placeholder: "Name" } %>
+        <% if @board.errors.full_messages_for(:name).any? %>
+          <div class="text-danger">
+            <% @board.errors.full_messages_for(:name).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mb-3 ">
+        <%= form.label :width, { class: "form-label" } %>
+        <%= form.number_field :width, { class: "form-control text-center", placeholder: "Width" } %>
+        <% if @board.errors.full_messages_for(:width).any? %>
+          <div class="text-danger text-sm">
+            <% @board.errors.full_messages_for(:width).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mb-3 ">
+        <%= form.label :height, { class: "form-label" } %>
+        <%= form.number_field :height, { class: "form-control text-center", placeholder: "Height" } %>
+        <% if @board.errors.full_messages_for(:height).any? %>
+          <div class="text-danger text-sm">
+            <% @board.errors.full_messages_for(:height).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="mb-3">
+        <%= form.label :mines, { class: "form-label" } %>
+        <%= form.number_field :mines, { class: "form-control text-center", placeholder: "Mines" } %>
+        <% if @board.errors.full_messages_for(:mines).any? %>
+          <div class="text-danger text-sm">
+            <% @board.errors.full_messages_for(:mines).each do |message| %>
+              <div><%= message %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="field text-center">
+        <%= form.submit "Generate Board", class: "btn btn-primaty btn-center" %>
+      </div>
+    </div>
+  </div>
+<% end %>
