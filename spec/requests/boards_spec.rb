@@ -24,7 +24,7 @@ RSpec.describe "Boards", type: :request do
     end
 
     it "should return a board" do
-      get board_url(@board1.id)
+      get "/boards/#{@board1.id}"
       expect(response).to have_http_status(:success)
       expect(response).to render_template('show')
     end
@@ -191,14 +191,14 @@ RSpec.describe "Boards", type: :request do
       expect(json).to include Constants::MINES_MUST_BE_LESS_THAN_NUMBER + "#{@ro_board["width"] * @ro_board["height"]}"
     end
 
-    it "board game should be generated after after Board is created" do
+    it "board game should be generated after Board is created" do
       board_game = JSON.parse(@board1.board_game)
       expect(board_game.length).to eq(@board1.width)
       expect(board_game[0].length).to eq(@board1.height)
       expect(ApplicationController.helpers.count_mines(board_game)).to eq(@board1.mines)
     end
 
-    it "board game should be generated after after Board is created" do
+    it "board game should be generated after Board is created" do
       board_game = JSON.parse(@board2.board_game)
       expect(ApplicationController.helpers.count_mines(board_game)).to eq(@board2.mines)
       expect(ApplicationController.helpers.count_zeros(board_game)).to eq(1)
